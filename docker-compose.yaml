@@ -52,7 +52,7 @@ services:
   model-download:
     security_opt:
       - no-new-privileges:true
-    user: 1000:1000
+    user: 568:568
     build:
       context: ./model-download
     volumes:
