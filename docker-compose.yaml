@@ -18,9 +18,7 @@ services:
     security_opt:
       - no-new-privileges:true
     volumes:
-      - type: bind
-        source: /mnt/main/tank/apps_data/whisper/models
-        target: /models
+        - /mnt/main/tank/apps_data/whisper/models:/models
     networks:
       whisper: {}
     hostname: whispercpp
@@ -52,13 +50,11 @@ services:
   model-download:
     security_opt:
       - no-new-privileges:true
-    user: 568:568
+    user: 1000:1000
     build:
       context: ./model-download
     volumes:
-      - type: bind
-        source: /mnt/main/tank/apps_data/whisper/models
-        target: /models
+      - /mnt/main/tank/apps_data/whisper/models:/models
     restart: no
     networks:
       whisper: {}
